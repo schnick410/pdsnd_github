@@ -2,7 +2,7 @@ import time
 import pandas as pd
 import numpy as np
 
-#Define dict for importing the correct data based on user input later on
+#TODO: Define dict for importing the correct data based on user input later on
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
@@ -11,7 +11,7 @@ CITY_DATA = { 'chicago': 'chicago.csv',
 
 MONTH_DATA = [0, 1, 2, 3, 4, 5, 6]
 
-# Define month grouping, so that entered integer can be converted into a text
+# TODO: Define month grouping, so that entered integer can be converted into a text
 MONTH_GROUPING = {0: 'no selection', 1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May', 6: 'June'}
 
 """List for input for days (Monday = 0)"""
@@ -20,7 +20,7 @@ DAY_DATA = [0, 1, 2, 3, 4, 5, 6, 7]
 
 """ List to group day number to day name """
 
-# Define day grouping, so that entered integer can be converted into a text
+# TODO: Define day grouping, so that entered integer can be converted into a text
 DAY_GROUPING = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday', 7: 'no selection'}
 
 def get_filters():
@@ -33,12 +33,12 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('\nHello! Let\'s explore some US bikeshare data!\n')
-    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+    # TODO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
 
     city= str(input('Which city are you interested in today? ')).lower()
     print()
 
-    # get user input for month (all, january, february, ... , june)
+    # TODO: get user input for month (all, january, february, ... , june)
 
     while city not in CITY_DATA.keys():
         city = str(input('That is not a valid input. You can select between Chicaco, New York City and Washington. Please enter again: - ')).lower()
@@ -98,13 +98,13 @@ def time_stats(df, month, day):
         mc_month = df['month'].mode()[0]
         print(' The month with the highest use of bike sharing is: ', mc_month)
 
-    # display the most common day of week
+    # TODO: display the most common day of week
 
     if day == 7:
         mc_day = df['weekday'].mode()[0]
         print(' The day with the highest use of bike sharing is: ', mc_day)
 
-    # display the most common start hour
+    # TODO: display the most common start hour
     mc_hour = df['hour'].mode()[0]
     print(' The hour with the highest use of bike sharing is: ', mc_hour)
 
@@ -119,15 +119,15 @@ def station_stats(df):
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
-    # display most commonly used start station
+    # TODO: display most commonly used start station
     mc_start = df['Start Station'].mode()[0]
     print('\nThe most used Start Station is: ', mc_start)
 
-    # display most commonly used end station
+    # TODO: display most commonly used end station
     mc_end = df['End Station'].mode()[0]
     print('\nThe most used End Station is: ', mc_end)
 
-    # display most frequent combination of start station and end station trip
+    # TODO: display most frequent combination of start station and end station trip
 
     df['Start - End'] = 'from ' + df['Start Station'] + ' to ' + df['End Station']
     mc_start_to_end = df['Start - End'].mode()[0]
@@ -145,7 +145,7 @@ def trip_duration_stats(df, month, day):
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
-    # Calculate total trip Duration
+    # TODO: Calculate total trip Duration
     #Total trip duration is displayed in hours and shown with no decimal.
 
     td_total_minutes = df['Trip Duration'].sum()
@@ -160,7 +160,7 @@ def trip_duration_stats(df, month, day):
     elif day == 7:
         print(('\nThe total trip duration over the total month number {} is {} hours.').format(month, td_total_hours))
 
-    # Calculate the average trip Duration
+    # TODO: Calculate the average trip Duration
     # Average Trip duration is rounded to the nearest full minute
 
     avg_td_minutes = int(round(df['Trip Duration'].mean() /60, 0))
@@ -175,7 +175,7 @@ def user_stats(df, city):
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
-    # Display counts of user types
+    # TODO: Display counts of user types
     count_user_type = df['User Type'].value_counts()
     print(count_user_type)
 
@@ -185,7 +185,7 @@ def user_stats(df, city):
         print (count_gender)
 
 
-    # Display earliest, most recent, and most common year of birth, again there is no birth year in washington
+    # TODO: Display earliest, most recent, and most common year of birth, again there is no birth year in washington
 
     # Earliest year of birth equals the minimum of the numbers in birth year, highest equals max, most common equals mode[0]
     if city != 'washington':
