@@ -2,6 +2,7 @@ import time
 import pandas as pd
 import numpy as np
 
+#Define dict for importing the correct data based on user input later on
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
@@ -10,6 +11,7 @@ CITY_DATA = { 'chicago': 'chicago.csv',
 
 MONTH_DATA = [0, 1, 2, 3, 4, 5, 6]
 
+# Define month grouping, so that entered integer can be converted into a text
 MONTH_GROUPING = {0: 'no selection', 1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May', 6: 'June'}
 
 """List for input for days (Monday = 0)"""
@@ -18,6 +20,7 @@ DAY_DATA = [0, 1, 2, 3, 4, 5, 6, 7]
 
 """ List to group day number to day name """
 
+# Define day grouping, so that entered integer can be converted into a text
 DAY_GROUPING = {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday', 7: 'no selection'}
 
 def get_filters():
