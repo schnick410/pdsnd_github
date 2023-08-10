@@ -186,12 +186,12 @@ def user_stats(df, city):
 
     # Earliest year of birth equals the minimum of the numbers in birth year, highest equals max, most common equals mode[0]
     if city != 'washington':
-        earliest_birth_year = int(df['Birth Year'].min())
-        print ('The youngest user was born in:', earliest_birth_year)
-        highest_birth_year = int(df['Birth Year'].max())
-        print ('The oldest user was born in:', highest_birth_year)
-        mc_birth_year = int(df['Birth Year'].mode()[0])
-        print ('The most common birth year was:', mc_birth_year)
+        min_by = int(df['Birth Year'].min())
+        print ('The youngest user was born in:', min_by)
+        max_by = int(df['Birth Year'].max())
+        print ('The oldest user was born in:', max_by)
+        mc_by = int(df['Birth Year'].mode()[0])
+        print ('The most common birth year was:', mc_by)
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
